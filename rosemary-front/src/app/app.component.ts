@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component,OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { UserService } from './users/users.service';
+import { rosemaryHeader } from './global/header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule],
+  imports: [RouterOutlet,CommonModule,rosemaryHeader],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
