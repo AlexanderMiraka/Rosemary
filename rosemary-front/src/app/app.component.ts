@@ -9,7 +9,7 @@ import { rosemaryHeader } from './global/header/header.component';
   standalone: true,
   imports: [RouterOutlet,CommonModule,rosemaryHeader],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   title = 'rosemary';

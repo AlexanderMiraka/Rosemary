@@ -1,0 +1,53 @@
+@import '../../../styles.scss';
+.header-loginBanner {
+    background-color: $accent1;
+    color: $primary;
+    margin: 0;
+    position:sticky;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    button {
+        font-weight: 600;
+        margin: 0;
+        padding: 0;
+        margin-right: 64px;
+    }
+}
+.header {
+    background-color: $background;
+    color: $text;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    &-logo {
+        margin-left: 64px;
+        ::after {
+            content: "";
+            background-image: url('../../../assets/hat.webp');
+            display: block;
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 48px;
+            height: 48px;
+            filter: invert(.75);
+            margin-left: 16px;
+        }
+        &Title {
+            font-family: $headings;
+            display: flex;
+            align-items: center;
+            font-size: 32px;
+            font-weight: 600;
+
+        }
+    }
+    &-navBar {
+        display: flex;
+        gap: 24px;
+        margin-right: 64px;
+    }
+}

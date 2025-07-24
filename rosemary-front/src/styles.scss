@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Quicksand:wght@400;500&display=swap');
+
+
+$primary: #4a6c42; //buttons, headers, accents
+$accent1: #9ba88d; //backgrounds, cards, nav bars
+$accent2: #a3bfd9; // icons, callouts, links
+$accent3: #8b6f47; //borders, footer, secondary buttons
+$background: #f5f3ed; //background, cards, text areas
+$text: #2e2e2e; //body text, headings
+
+$body: 'Quicksand', sans-serif;
+$headings: 'Cormorant Garamond', serif;
+
+body {
+  margin: 0;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: $text;
+    border: none;
+    cursor: pointer;
+    font-family: $headings;
+    font-size: 24px;
+    line-height: 21px;
+    &:hover {
+        color: $primary;
+    }
+    &:active {
+        transform: translateY(5px);
+        
+    }
+    transition: all .2s ease-in-out;
+    
+}
