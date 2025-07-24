@@ -13,7 +13,7 @@ export class UserService {
     return this.http.get(this.apiUrl); // GET /users
   }
 
-  createUser(user: { name: string; email: string }) {
+  createUser(user: { name: string; email: string, isLoggedIn: boolean }) {
     return this.http.post(this.apiUrl, user); // POST /users
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Input, model } from "@angular/core";
 
 @Component({
     selector: "rosemary-header",
@@ -6,4 +6,6 @@ import { Component } from "@angular/core";
     styleUrls: ["./header.component.scss"],
     standalone:true,
 })
-export class rosemaryHeader {}
+export class rosemaryHeader {
+    @Input() userIsLogged: boolean = false;
+}
