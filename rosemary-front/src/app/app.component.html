@@ -1,13 +1,2 @@
 <rosemary-header [userIsLogged]="users[0]?.isLoggedIn"></rosemary-header>
-
-<h2>Users from NestJS Backend</h2>
-
-<ul>
-  <li *ngFor="let user of users">
-    {{ user.name }} – {{ user.email }}
-  </li>
-</ul>
-
-
-
 <router-outlet />

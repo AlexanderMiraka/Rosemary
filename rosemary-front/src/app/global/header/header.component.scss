@@ -3,8 +3,6 @@
     background-color: $accent1;
     color: $primary;
     margin: 0;
-    position:sticky;
-    top: 0;
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -18,6 +16,8 @@
     }
 }
 .header {
+    position:sticky;
+    top: 0;
     background-color: $background;
     color: $text;
     display: flex;

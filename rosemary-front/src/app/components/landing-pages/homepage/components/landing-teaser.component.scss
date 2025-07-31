@@ -1,0 +1,72 @@
+@import "../../../../../styles.scss";
+.homepageLandingTeaser {
+  display: flex;
+  width: 100%;
+  height: calc(100vh - 151px); //header height
+  align-items: center;
+  &-text {
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &-Title {
+      margin-bottom: 8px;
+      h6 {
+        font-size: 17px;
+        line-height: 20px;
+        text-decoration: none;
+        font-family: $body;
+        color: $accent3;
+        padding: 0;
+        margin: 0;
+      }
+    }
+    &-Subtitle {
+      position: relative;
+      h2 {
+        font-size: 56px;
+        line-height: 72px;
+        font-family: $body;
+        color: $text;
+        margin: 0;
+        padding: 0;
+        &::after {
+          content: "";
+          background: url("../../../../../assets/aftertitle.webp") center
+            no-repeat;
+          width: 100%;
+          height: 100%;
+          display: block;
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          filter: (0) saturate(100%) invert(14%);
+        }
+      }
+    }
+    &-Info {
+      margin: 88px 128px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      p {
+        font-size: 16px;
+        line-height: 24px;
+        font-family: $body;
+        color: $text;
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+  &-image {
+    width: 100%;
+    height: 100%;
+    & > * {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
