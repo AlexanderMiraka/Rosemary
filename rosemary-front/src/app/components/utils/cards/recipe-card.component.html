@@ -1,0 +1,13 @@
+<div class="recipe-card">
+    <div class="recipe-cardImg">
+        <ng-content select="card-img"></ng-content>
+    </div>
+    <div class="recipe-content">
+        <div class="recipe-contentDatePrice">
+            <ng-content select="card-price"></ng-content>
+        </div>
+        <div class="recipe-contentInfo">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>
