@@ -1,24 +1,40 @@
 <div class="loginModal-backdrop">
   <div class="loginModal">
-    <h2>Login</h2>
-    <form>
+    <div class="loginModal-header">
+      <button class="loginModal-headerButton selected">Login</button>
+      <button class="loginModal-headerButton">Register</button>
+      <button class="loginModal-headerButton" (click)="close()">close</button>
+    </div>
+    <form class="loginModal-loginForm">
       <div class="loginModal-formGroup">
-        <label for="email">Email</label>
         <input id="email" type="email" required />
+        <span>Email</span>
       </div>
       <div class="loginModal-formGroup">
-        <label for="password">Password</label>
         <input id="password" type="password" required />
+        <span>Password</span>
+      </div>
+      <div class="loginModal-formActions">
+        <button type="submit" class="btn-primary">Login</button>
+      </div>
+    </form>
+    <form class="loginModal-RegisterForm" hidden>
+      <div class="loginModal-formGroup">
+        <input id="email" type="email" required />
+        <span>Email</span>
+      </div>
+      <div class="loginModal-formGroup">
+        <input id="mobile" type="tel" required />
+        <span>Mobile</span>
+      </div>
+      <div class="loginModal-formGroup">
+        <input id="password" type="password" required />
+        <span>Password</span>
       </div>
       <div class="loginModal-formActions">
         <button type="submit" class="btn-primary">Login</button>
         <button type="button" class="btn-secondary">Cancel</button>
       </div>
     </form>
-    <div class="loginModal-footer">
-      <a href="#">Forgot password?</a>
-      <span> | </span>
-      <button (click)="close()">close</button>
-    </div>
   </div>
 </div>
