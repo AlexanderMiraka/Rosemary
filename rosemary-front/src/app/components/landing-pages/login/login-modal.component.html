@@ -6,16 +6,10 @@
       <button class="loginModal-headerButton" (click)="close()">close</button>
     </div>
     <form class="loginModal-loginForm">
-      <div class="loginModal-formGroup">
-        <input id="email" type="email" required />
-        <span>Email</span>
-      </div>
-      <div class="loginModal-formGroup">
-        <input id="password" type="password" required />
-        <span>Password</span>
-      </div>
+        <input id="email" type="email" placeholder="email *" required />
+        <input id="password" type="password" placeholder="password *" required />
       <div class="loginModal-formActions">
-        <button type="submit" class="btn-primary">Login</button>
+        <button type="submit" class="loginModal-formActionsButton">Login</button>
       </div>
     </form>
     <form class="loginModal-RegisterForm" hidden>
