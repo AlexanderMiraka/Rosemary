@@ -1,34 +1,34 @@
 <div class="loginModal-backdrop">
   <div class="loginModal">
     <div class="loginModal-header">
-      <button class="loginModal-headerButton selected">Login</button>
-      <button class="loginModal-headerButton">Register</button>
+      <button class="loginModal-headerButton selected" (click)="toggleModal('login')">
+        <!-- TODO: toggle selevted button class -->
+        Login
+      </button>
+      <button class="loginModal-headerButton" (click)="toggleModal('register')">
+        Register
+      </button>
       <button class="loginModal-headerButton" (click)="close()">close</button>
     </div>
+    @if(modalShow === "login") {
     <form class="loginModal-loginForm">
-        <input id="email" type="email" placeholder="email *" required />
-        <input id="password" type="password" placeholder="password *" required />
+      <input id="email" type="email" placeholder="email *" required />
+      <input id="password" type="password" placeholder="password *" required />
+      <div class="loginModal-formActions">
+        <button type="submit" class="loginModal-formActionsButton">
+          Login
+        </button>
+      </div>
+    </form>
+    } @else {
+    <form #form="ngForm" class="loginModal-RegisterForm" (submit)="formSubmit(form)">
+      <input id="email" type="email" placeholder="email *" [(ngModel)] = "user.email" [ngModelOptions]="{standalone: true}" required />
+      <input id="mobile" type="tel" placeholder="mobile number *" [(ngModel)] = "user.mobile" [ngModelOptions]="{standalone: true}" required />
+      <input id="password" type="password" placeholder="password *" [(ngModel)] = "user.password" [ngModelOptions]="{standalone: true}" required />
       <div class="loginModal-formActions">
         <button type="submit" class="loginModal-formActionsButton">Login</button>
       </div>
     </form>
-    <form class="loginModal-RegisterForm" hidden>
-      <div class="loginModal-formGroup">
-        <input id="email" type="email" required />
-        <span>Email</span>
-      </div>
-      <div class="loginModal-formGroup">
-        <input id="mobile" type="tel" required />
-        <span>Mobile</span>
-      </div>
-      <div class="loginModal-formGroup">
-        <input id="password" type="password" required />
-        <span>Password</span>
-      </div>
-      <div class="loginModal-formActions">
-        <button type="submit" class="btn-primary">Login</button>
-        <button type="button" class="btn-secondary">Cancel</button>
-      </div>
-    </form>
+    }
   </div>
 </div>
