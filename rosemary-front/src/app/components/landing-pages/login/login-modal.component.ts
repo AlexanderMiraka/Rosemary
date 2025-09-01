@@ -19,12 +19,15 @@ export class loginModal {
         this.modalShow = toogle;
         return this.modalShow;
     }
-    user = {
+    registerUser = {
+        username: "",
         email: "",
         password: "",
         mobile:"",
+        biography: "",
     }
     formSubmit(form: any) {
-        registerUser(this.user);
+        registerUser(this.registerUser);
+        this.close();
     }
 }
