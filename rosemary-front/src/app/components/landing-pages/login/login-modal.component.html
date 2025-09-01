@@ -11,9 +11,9 @@
       <button class="loginModal-headerButton" (click)="close()">close</button>
     </div>
     @if(modalShow === "login") {
-    <form class="loginModal-loginForm">
-      <input id="email" type="email" placeholder="email *" required />
-      <input id="password" type="password" placeholder="password *" required />
+    <form #loginForm="ngForm" class="loginModal-loginForm" (submit)="formSubmit(loginForm,'login')">
+      <input id="email" type="email" placeholder="email *" required [(ngModel)] = "loginUser.email" [ngModelOptions]="{standalone: true}"/>
+      <input id="password" type="password" placeholder="password *" [(ngModel)] = "loginUser.password" [ngModelOptions]="{standalone: true}" required />
       <div class="loginModal-formActions">
         <button type="submit" class="loginModal-formActionsButton">
           Login
@@ -21,7 +21,7 @@
       </div>
     </form>
     } @else {
-    <form #form="ngForm" class="loginModal-RegisterForm" (submit)="formSubmit(form)">
+    <form #registerForm="ngForm" class="loginModal-RegisterForm" (submit)="formSubmit(registerForm,'register')">
       <input id="email" type="text" placeholder="username *" [(ngModel)] = "registerUser.username" [ngModelOptions]="{standalone: true}" required />
       <input id="username" type="email" placeholder="email *" [(ngModel)] = "registerUser.email" [ngModelOptions]="{standalone: true}" required />
       <input id="mobile" type="tel" placeholder="mobile number *" [(ngModel)] = "registerUser.mobile" [ngModelOptions]="{standalone: true}" required />
