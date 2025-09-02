@@ -9,3 +9,13 @@ export async function registerUser(data: any) {
         throw error;
     }
 }
+
+export async function loginUser(data:any) {
+    try {
+        const response = await axios.post('http://localhost:3000/auth/login', data);
+        return response.data;
+    }
+    catch (error: string | any) {
+        throw new Error(error);
+    }
+}

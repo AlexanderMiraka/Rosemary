@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { registerUser } from '../../utils/fucntions/calls';
+import { registerUser, loginUser } from '../../utils/fucntions/calls';
 
 @Component({
   selector: 'login-modal',
@@ -35,6 +35,7 @@ export class loginModal {
       registerUser(this.registerUser);
       this.close();
     } else if (mode === 'login') {
+      loginUser(this.loginUser);
       this.close();
     }
   }
