@@ -35,9 +35,12 @@ export class loginModal {
   };
   async formSubmit(form: any, mode: String) {
     if (mode === 'register') {
-      registerUser(this.registerUser);
+      await registerUser(this.registerUser).then(()=>{
+        loginUser(this.registerUser);
+      });
       this.close();
       this.userIsLogged.emit(true);
+      this.router.navigate([`/user/:${this.registerUser.username}`]);
     } else if (mode === 'login') {
       const error = await loginUser(this.loginUser);
       if(error === 401 || error === 404) {
