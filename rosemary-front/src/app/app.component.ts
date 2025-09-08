@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component,OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { UserService } from './users/users.service';
 import { rosemaryHeader } from './global/header/header.component';
 
 @Component({

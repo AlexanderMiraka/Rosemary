@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { registerUser, loginUser } from '../../utils/fucntions/calls';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login-modal',
@@ -10,6 +11,7 @@ import { registerUser, loginUser } from '../../utils/fucntions/calls';
   standalone: true,
 })
 export class loginModal {
+  constructor(private router: Router) {}
   @Output() closeModal = new EventEmitter<boolean>(); //passes false to parent when modal closes
   @Output() userIsLogged = new EventEmitter<boolean>();
   close() {
@@ -44,6 +46,7 @@ export class loginModal {
       else {
         this.close();
         this.userIsLogged.emit(true);
+        this.router.navigate([`/user/:${this.loginUser.username}`]);
       }
       
       
