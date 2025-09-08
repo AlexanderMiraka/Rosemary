@@ -11,6 +11,7 @@ import { registerUser, loginUser } from '../../utils/fucntions/calls';
 })
 export class loginModal {
   @Output() closeModal = new EventEmitter<boolean>(); //passes false to parent when modal closes
+  @Output() userIsLogged = new EventEmitter<boolean>();
   close() {
     this.closeModal.emit(false);
   }
@@ -27,16 +28,25 @@ export class loginModal {
     biography: '',
   };
   loginUser = {
-    email: '',
+    username: '',
     password: '',
   };
-  formSubmit(form: any, mode: String) {
+  async formSubmit(form: any, mode: String) {
     if (mode === 'register') {
       registerUser(this.registerUser);
       this.close();
+      this.userIsLogged.emit(true);
     } else if (mode === 'login') {
-      loginUser(this.loginUser);
-      this.close();
+      const error = await loginUser(this.loginUser);
+      if(error === 401 || error === 404) {
+        alert("Invalid Credentials");
+      }
+      else {
+        this.close();
+        this.userIsLogged.emit(true);
+      }
+      
+      
     }
   }
 }

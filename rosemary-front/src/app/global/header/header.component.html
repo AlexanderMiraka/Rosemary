@@ -13,5 +13,5 @@
   </div>
 </div>
 @if(loginModal) {
-  <login-modal (closeModal)="loginModal = $event"></login-modal>
+  <login-modal (closeModal)="loginModal = $event" (userIsLogged) = "showLoginStrip($event)"></login-modal>
 }

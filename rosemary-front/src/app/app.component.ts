@@ -11,15 +11,6 @@ import { rosemaryHeader } from './global/header/header.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'rosemary';
-  users: any[] = [];
-
-  constructor(private userService: UserService) {}
-
-  ngOnInit() {
-    this.userService.getUsers().subscribe((data: any) => {
-      this.users = data;
-    });
-  }
 }

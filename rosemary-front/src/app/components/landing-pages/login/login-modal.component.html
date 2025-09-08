@@ -12,7 +12,7 @@
     </div>
     @if(modalShow === "login") {
     <form #loginForm="ngForm" class="loginModal-loginForm" (submit)="formSubmit(loginForm,'login')">
-      <input id="email" type="email" placeholder="email *" required [(ngModel)] = "loginUser.email" [ngModelOptions]="{standalone: true}"/>
+      <input id="email" type="email" placeholder="email *" required [(ngModel)] = "loginUser.username" [ngModelOptions]="{standalone: true}"/>
       <input id="password" type="password" placeholder="password *" [(ngModel)] = "loginUser.password" [ngModelOptions]="{standalone: true}" required />
       <div class="loginModal-formActions">
         <button type="submit" class="loginModal-formActionsButton">

@@ -10,12 +10,18 @@ export async function registerUser(data: any) {
     }
 }
 
-export async function loginUser(data:any) {
-    try {
-        const response = await axios.post('http://localhost:3000/auth/login', data);
-        return response.data;
+export async function loginUser(data:any){
+    let statusCode = 200;
+try {
+    statusCode = 200;
+    return await axios.post('http://localhost:3000/auth/login', data);
+}
+catch(err) {
+    if(axios.isAxiosError(err) && err.response) {
+        statusCode = err.response.status;
+        return err.response.status;
     }
-    catch (error: string | any) {
-        throw new Error(error);
-    }
+}
+return statusCode;
+
 }
