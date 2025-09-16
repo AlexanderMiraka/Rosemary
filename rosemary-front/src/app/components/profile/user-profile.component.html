@@ -1,6 +1,7 @@
 <h2>User Profile</h2>
 <div class="profile-actions">
+  <h2>hello {{user.user().username}}</h2> 
   <button>Edit Profile</button>
-  <button>Log Out</button>
+  <button (click)="logout()">Log Out</button>
   <button>Add a Recipe</button>
 </div>

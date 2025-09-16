@@ -1,5 +1,6 @@
 import { Component, Input, model, Output } from "@angular/core";
 import { loginModal } from "../../components/landing-pages/login/login-modal.component";
+import { AppComponent } from "../../app.component";
 
 @Component({
     selector: "rosemary-header",
@@ -9,15 +10,12 @@ import { loginModal } from "../../components/landing-pages/login/login-modal.com
     imports:[loginModal],
 })
 export class rosemaryHeader {
+    constructor(public user:AppComponent){}
     loginModal = false;
     //@input is used to pass data from parent to child
     // @Input() userIsLogged: boolean = false;//initially set to false. Receives from parent
-    userIsLogged: boolean = false;
     showLoginModal(event:MouseEvent): void {
         event.preventDefault();
         this.loginModal = true;
-    }
-    showLoginStrip(e:boolean) {
-        this.userIsLogged = e;
     }
 }

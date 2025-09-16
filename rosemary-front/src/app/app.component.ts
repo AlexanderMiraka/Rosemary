@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component,OnInit } from '@angular/core';
+import { Component,Injectable,OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { rosemaryHeader } from './global/header/header.component';
 
@@ -10,6 +10,20 @@ import { rosemaryHeader } from './global/header/header.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+//provides a global signal of user
+@Injectable({
+  providedIn: 'root',
+})
+//signal method setter
 export class AppComponent {
   title = 'rosemary';
+  user = signal({username:'', email:'', password:'', mobile:'', biography:''});
+  userIsLogged = signal(false); 
+  setUser(user:any) {
+      this.user.set(user);
+  }
+  setUserIsLogged(areThey:boolean) {
+    this.userIsLogged.set(areThey);
+  }
+
 }

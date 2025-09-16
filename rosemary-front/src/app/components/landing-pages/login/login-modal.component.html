@@ -12,8 +12,8 @@
     </div>
     @if(modalShow === "login") {
     <form #loginForm="ngForm" class="loginModal-loginForm" (submit)="formSubmit(loginForm,'login')">
-      <input id="email" type="email" placeholder="email *" required [(ngModel)] = "loginUser.username" [ngModelOptions]="{standalone: true}"/>
-      <input id="password" type="password" placeholder="password *" [(ngModel)] = "loginUser.password" [ngModelOptions]="{standalone: true}" required />
+      <input id="email" type="email" placeholder="email *" required [(ngModel)] = "currentUser.username" [ngModelOptions]="{standalone: true}"/>
+      <input id="password" type="password" placeholder="password *" [(ngModel)] = "currentUser.password" [ngModelOptions]="{standalone: true}" required />
       <div class="loginModal-formActions">
         <button type="submit" class="loginModal-formActionsButton">
           Login
@@ -22,11 +22,11 @@
     </form>
     } @else {
     <form #registerForm="ngForm" class="loginModal-RegisterForm" (submit)="formSubmit(registerForm,'register')">
-      <input id="email" type="text" placeholder="username *" [(ngModel)] = "registerUser.username" [ngModelOptions]="{standalone: true}" required />
-      <input id="username" type="email" placeholder="email *" [(ngModel)] = "registerUser.email" [ngModelOptions]="{standalone: true}" required />
-      <input id="mobile" type="tel" placeholder="mobile number *" [(ngModel)] = "registerUser.mobile" [ngModelOptions]="{standalone: true}" required />
-      <input id="password" type="password" placeholder="password *" [(ngModel)] = "registerUser.password" [ngModelOptions]="{standalone: true}" required />
-      <input id="bio" type="textarea" placeholder="Tell us about yourself" [(ngModel)] = "registerUser.biography" [ngModelOptions]="{standalone: true}" required />
+      <input id="email" type="text" placeholder="username *" [(ngModel)] = "currentUser.username" [ngModelOptions]="{standalone: true}" required />
+      <input id="username" type="email" placeholder="email *" [(ngModel)] = "currentUser.email" [ngModelOptions]="{standalone: true}" required />
+      <input id="mobile" type="tel" placeholder="mobile number *" [(ngModel)] = "currentUser.mobile" [ngModelOptions]="{standalone: true}" required />
+      <input id="password" type="password" placeholder="password *" [(ngModel)] = "currentUser.password" [ngModelOptions]="{standalone: true}" required />
+      <input id="bio" type="textarea" placeholder="Tell us about yourself" [(ngModel)] = "currentUser.biography" [ngModelOptions]="{standalone: true}" required />
       <div class="loginModal-formActions">
         <button type="submit" class="loginModal-formActionsButton">Login</button>
       </div>

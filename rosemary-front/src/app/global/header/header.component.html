@@ -1,4 +1,4 @@
-@if(!userIsLogged) {
+@if(!user.userIsLogged()){
 <div class="header-loginBanner"><button class="btn-secondary" (click)="showLoginModal($event)">Log in/Sign up</button></div>
 }
 <div class="header">
@@ -6,12 +6,12 @@
   <div class="header-navBar">
     <button class="header-navBar-button btn-secondary">Explore</button>
     <button class="btn-secondary">Discussion</button>
-    @if(userIsLogged) {
+    @if(user.userIsLogged()) {
     <button class="btn-secondary">Profile</button>
     }
     <button class="btn-secondary">search</button>
   </div>
 </div>
 @if(loginModal) {
-  <login-modal (closeModal)="loginModal = $event" (userIsLogged) = "showLoginStrip($event)"></login-modal>
+  <login-modal (closeModal)="loginModal = $event" ></login-modal>
 }

@@ -2,6 +2,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { registerUser, loginUser } from '../../utils/fucntions/calls';
 import { Router } from '@angular/router';
+import { AppComponent } from '../../../app.component';
+import { userInfo } from 'os';
 
 @Component({
   selector: 'login-modal',
@@ -10,10 +12,10 @@ import { Router } from '@angular/router';
   imports: [FormsModule],
   standalone: true,
 })
+//add keywords of public or private etc, to constructor to create instance of the class
 export class loginModal {
-  constructor(private router: Router) {}
+  constructor(private router: Router, public user:AppComponent) {}
   @Output() closeModal = new EventEmitter<boolean>(); //passes false to parent when modal closes
-  @Output() userIsLogged = new EventEmitter<boolean>();
   close() {
     this.closeModal.emit(false);
   }
@@ -22,34 +24,32 @@ export class loginModal {
     this.modalShow = toogle;
     return this.modalShow;
   }
-  registerUser = {
+  currentUser = {
     username: '',
     email: '',
     password: '',
     mobile: '',
     biography: '',
   };
-  loginUser = {
-    username: '',
-    password: '',
-  };
   async formSubmit(form: any, mode: String) {
     if (mode === 'register') {
-      await registerUser(this.registerUser).then(()=>{
-        loginUser(this.registerUser);
+      await registerUser(this.currentUser).then(() => {
+        loginUser(this.currentUser);
+        this.user.setUser(this.currentUser);
       });
       this.close();
-      this.userIsLogged.emit(true);
-      this.router.navigate([`/user/:${this.registerUser.username}`]);
+      this.user.setUserIsLogged(true);
+      this.router.navigate([`/user/:${this.currentUser.username}`]);
     } else if (mode === 'login') {
-      const error = await loginUser(this.loginUser);
+      const error = await loginUser(this.currentUser);
       if(error === 401 || error === 404) {
         alert("Invalid Credentials");
       }
       else {
         this.close();
-        this.userIsLogged.emit(true);
-        this.router.navigate([`/user/:${this.loginUser.username}`]);
+        this.user.setUserIsLogged(true);
+        this.router.navigate([`/user/:${this.currentUser.username}`]);
+        this.user.setUser(this.currentUser);
       }
       
       
