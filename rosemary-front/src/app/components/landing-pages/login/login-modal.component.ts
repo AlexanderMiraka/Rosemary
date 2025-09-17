@@ -4,12 +4,12 @@ import { registerUser, loginUser } from '../../utils/fucntions/calls';
 import { Router } from '@angular/router';
 import { AppComponent } from '../../../app.component';
 import { userInfo } from 'os';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'login-modal',
   templateUrl: './login-modal.component.html',
   styleUrls: ['./login-modal.component.scss'],
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   standalone: true,
 })
 //add keywords of public or private etc, to constructor to create instance of the class
@@ -22,7 +22,17 @@ export class loginModal {
   modalShow: String = 'login';
   toggleModal(toogle: String): String {
     this.modalShow = toogle;
+    this.selectToggle(toogle);
     return this.modalShow;
+  }
+  isSelected: boolean = true;
+  selectToggle(toogle:String) {
+    if(toogle === 'login') {
+      this.isSelected = true;
+    }
+    else {
+      this.isSelected = false;
+    }
   }
   currentUser = {
     username: '',

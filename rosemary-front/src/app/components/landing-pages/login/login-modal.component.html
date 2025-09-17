@@ -1,17 +1,17 @@
 <div class="loginModal-backdrop">
   <div class="loginModal">
     <div class="loginModal-header">
-      <button class="loginModal-headerButton selected" (click)="toggleModal('login')">
+      <button class="loginModal-headerButton" [ngClass]="isSelected ? 'selected' : ''" (click)="toggleModal('login')">
         <!-- TODO: toggle selevted button class -->
         Login
       </button>
-      <button class="loginModal-headerButton" (click)="toggleModal('register')">
+      <button class="loginModal-headerButton" [ngClass]="isSelected ? '' : 'selected'" (click)="toggleModal('register')">
         Register
       </button>
       <button class="loginModal-headerButton" (click)="close()">close</button>
     </div>
     @if(modalShow === "login") {
-    <form #loginForm="ngForm" class="loginModal-loginForm" (submit)="formSubmit(loginForm,'login')">
+    <form #loginForm="ngForm" class="loginModal-loginForm" animate.enter="active" (submit)="formSubmit(loginForm,'login')">
       <input id="email" type="email" placeholder="email *" required [(ngModel)] = "currentUser.username" [ngModelOptions]="{standalone: true}"/>
       <input id="password" type="password" placeholder="password *" [(ngModel)] = "currentUser.password" [ngModelOptions]="{standalone: true}" required />
       <div class="loginModal-formActions">
@@ -21,7 +21,7 @@
       </div>
     </form>
     } @else {
-    <form #registerForm="ngForm" class="loginModal-RegisterForm" (submit)="formSubmit(registerForm,'register')">
+    <form #registerForm="ngForm" class="loginModal-RegisterForm" animate.enter="active" (submit)="formSubmit(registerForm,'register')">
       <input id="email" type="text" placeholder="username *" [(ngModel)] = "currentUser.username" [ngModelOptions]="{standalone: true}" required />
       <input id="username" type="email" placeholder="email *" [(ngModel)] = "currentUser.email" [ngModelOptions]="{standalone: true}" required />
       <input id="mobile" type="tel" placeholder="mobile number *" [(ngModel)] = "currentUser.mobile" [ngModelOptions]="{standalone: true}" required />

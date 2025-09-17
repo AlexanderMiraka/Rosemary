@@ -42,6 +42,7 @@
       &.selected {
         background-color: $accent1;
         color: $text;
+        transition: background-color 1s ease;
       }
     }
   }
@@ -57,10 +58,10 @@
       width: 100%;
       align-items: center;
       justify-content: center;
+      animation: active 1s forwards;
       & input {
           width: 80%;
           padding: 0;
-        //   margin: 0 auto;
           background-color: $background;
           border: 1px solid $primary;
           border-radius: 20px;
@@ -87,3 +88,12 @@
         }
     }
 }
+@keyframes active {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+// :IMPORTANT animate.enter works only with signals.
