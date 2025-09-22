@@ -1,7 +1,26 @@
-<h2>User Profile</h2>
-<div class="profile-actions">
-  <h2>hello {{user.user().username}}</h2> 
-  <button>Edit Profile</button>
-  <button (click)="logout()">Log Out</button>
-  <button>Add a Recipe</button>
+<div class="userprofile">
+  <div class="userprofile-userInfo">
+    <div class="userprofile-userInfo-userActions">
+      <h2 class="userprofile-userInfo-username">{{ user.user().username }}</h2>
+      <button class="userprofile-userInfo-userActions-button">
+        Edit Profile
+      </button>
+      <button
+        (click)="logout()"
+        class="userprofile-userInfo-userActions-button"
+      >
+        Log Out
+      </button>
+    </div>
+    <div class="userprofile-userInfo-counters">
+      <p class="userprofile-userInfo-counters-rank">{{ user.user().rank }}</p>
+      <p class="userprofile-userInfo-counters-recipes">0 Recipes</p>
+      <p class="userprofile-userInfo-counters-lessons">0 Cooking Classes</p>
+    </div>
+    <h3 class="userprofile-userInfo-bio">{{ user.user().biography }}</h3>
+    <div class="userprofile-userContent">
+      <button class="userprofile-userContent-button"></button>
+      <button class="userprofile-userContent-button"></button>
+    </div>
+  </div>
 </div>

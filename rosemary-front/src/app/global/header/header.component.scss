@@ -1,6 +1,6 @@
 @import '../../../styles.scss';
 .header-loginBanner {
-    background-color: $accent1;
+    background-color: $background;
     color: $primary;
     margin: 0;
     display: flex;
@@ -13,13 +13,14 @@
         margin: 0;
         padding: 0;
         margin-right: 64px;
+        color: #000;
     }
 }
 .header {
     position:sticky;
     top: 0;
-    background-color: $background;
-    color: $text;
+    background-color: $primary;
+    color: #fff;
     display: flex;
     justify-content:space-between;
     align-items: center;
@@ -33,7 +34,7 @@
             background-repeat: no-repeat;
             width: 48px;
             height: 48px;
-            filter: invert(.75);
+            // filter: invert(.25);
             margin-left: 16px;
         }
         &Title {

@@ -43,26 +43,24 @@ export class loginModal {
   };
   async formSubmit(form: any, mode: String) {
     if (mode === 'register') {
-      await registerUser(this.currentUser).then(() => {
+      await registerUser(this.currentUser).then((res) => {
         loginUser(this.currentUser);
-        this.user.setUser(this.currentUser);
+        this.user.setUser(res);
       });
       this.close();
       this.user.setUserIsLogged(true);
       this.router.navigate([`/user/:${this.currentUser.username}`]);
     } else if (mode === 'login') {
-      const error = await loginUser(this.currentUser);
-      if(error === 401 || error === 404) {
+      const response = await loginUser(this.currentUser);
+      if(response === 401 || response === 404) {
         alert("Invalid Credentials");
       }
       else {
         this.close();
         this.user.setUserIsLogged(true);
         this.router.navigate([`/user/:${this.currentUser.username}`]);
-        this.user.setUser(this.currentUser);
+        this.user.setUser(response);
       }
-      
-      
     }
   }
 }
