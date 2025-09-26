@@ -17,7 +17,7 @@ import { rosemaryHeader } from './global/header/header.component';
 //signal method setter
 export class AppComponent {
   title = 'rosemary';
-  user = signal({username:'', email:'', password:'', mobile:'', biography:'', rank:''});
+  user = signal({username:'', email:'', password:'', mobile:'', biography:'', rank:'', recipeCount:0, cookingClassesCount:0});
   userIsLogged = signal(false); 
   setUser(user:any) {
       this.user.set(user);
