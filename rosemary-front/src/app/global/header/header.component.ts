@@ -1,5 +1,5 @@
 import { Component, Input, model, Output } from "@angular/core";
-import { loginModal } from "../../components/landing-pages/login/login-modal.component";
+import { loginModal } from "../../components/landing-pages/modals/login-modal.component";
 import { AppComponent } from "../../app.component";
 
 @Component({

@@ -1,0 +1,52 @@
+@import '../../../../styles.scss';
+.recipes {
+    &-noRecipes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        gap: 128px;
+        &Title {
+            font-family: $body;
+            font-size: 32px;
+            margin: 0;
+            padding: 0;
+            font-weight: 500;
+        }
+        &Button {
+            background-color: $accent3;
+            color: #fff;
+            border-radius: 20px;
+            font-family: $headings;
+            font-size: 18px;
+            line-height: 24px;
+            padding: 4px 8px;
+            display: inline-block;
+            border: none;
+            transition: all .3s ease-in-out;
+            &::after {
+                content: "";
+                background: url('../../../../assets/hat.webp') center no-repeat;
+                width: 12px;
+                height: 12px;
+                background-size: cover;
+                display: inline-block;
+                margin-left: 8px;
+                transition: all .3s ease-in-out;
+            }
+            &:hover {
+                cursor: pointer;
+                background-color: #fff;
+                border: 1px solid $accent3;
+                color: #000;
+                &::after {
+                    filter: invert(1);
+                    transform: translateX(4px);
+                }
+            }
+            &:active {
+                transform: translateY(5px);
+            }
+        }
+    }
+}

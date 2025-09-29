@@ -1,0 +1,23 @@
+@import '../../../../styles.scss';
+
+.recipeFilter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    backdrop-filter: blur(8px);
+}
+.addRecipe {
+position: fixed;
+top: 50%;
+left: 50%;
+width: 60vw;
+height: 75vh;
+transform: translate(-50%,-50%);
+background-color: $accent1;
+opacity: .75;
+z-index: 2;
+border-radius: 6px;
+}

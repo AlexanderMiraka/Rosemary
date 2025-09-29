@@ -1,6 +1,11 @@
 @if(recipesCounter == 0) {
-    <h3>You have no recipes</h3>
-    <button>Add a Recipe</button>
+    <div class="recipes-noRecipes">
+        <h3 class="recipes-noRecipesTitle">You have no recipes</h3>
+        <button class="recipes-noRecipesButton" (click)="openModal()">Add a Recipe</button>
+    </div>
+    @if(openRecipeModal) {
+        <recipe-modal></recipe-modal>
+    }
 }
 @else {
     hello
