@@ -4,7 +4,7 @@
         <button class="recipes-noRecipesButton" (click)="openModal()">Add a Recipe</button>
     </div>
     @if(openRecipeModal) {
-        <recipe-modal></recipe-modal>
+        <recipe-modal (modalIsOpen)="closeModal()"></recipe-modal>
     }
 }
 @else {

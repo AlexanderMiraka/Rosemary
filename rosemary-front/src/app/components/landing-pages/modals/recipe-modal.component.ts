@@ -1,4 +1,4 @@
-import { Component, signal } from "@angular/core";
+import { Component, signal, EventEmitter, Output } from "@angular/core";
 
 @Component({
     templateUrl: "./recipe-modal.component.html",
@@ -9,4 +9,8 @@ import { Component, signal } from "@angular/core";
 
 export class RecipeModal {
     constructor() {}
+    @Output() modalIsOpen = new EventEmitter<void>();
+    closeModal() {
+        this.modalIsOpen.emit();
+    }
 }
