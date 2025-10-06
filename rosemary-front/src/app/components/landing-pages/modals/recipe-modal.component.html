@@ -4,4 +4,39 @@
         <h3 class="addRecipe-headerTitle">Create a new Recipe</h3>
         <button class="addRecipe-headerClose" (click)="closeModal()" >X</button>
     </div>
+    <div class="addRecipe-stepper">
+        <button class="addRecipe-stepperStep">1</button>
+        <div class="addRecipe-stepperProgressBar"></div>
+        <button class="addRecipe-stepperStep">2</button>
+        <div class="addRecipe-stepperProgressBar"></div>
+        <button class="addRecipe-stepperStep">3</button>
+    </div>
+    <div class="addRecipe-firstStep">
+        <div class="addRecipe-firstStep-addName">
+            <h3>Add a name:</h3>
+            <input type="text"/>
+        </div>
+        <div class="addRecipe-firstStep-addIngredients">
+            <h2>What ingredients will you use?</h2>
+            <label for="ingredient">Ingredient:</label>
+            <input type="text" id="ingredient" [(ngModel)] = "ingredient" [ngModelOptions]="{standalone: true}"/>
+            <label for="quantity">quantity:</label>
+            <input type="number" id="quantity" [(ngModel)] = "quantity" [ngModelOptions]="{standalone: true}"/>
+            <label for="measure">measurement:</label>
+            <select name="measure" id="measure" [(ngModel)] = "measurement" [ngModelOptions]="{standalone: true}">
+                <option  selected disabled hidden>unit</option>
+                @for (option of measurements; track option) {
+                    <option>{{option}}</option>
+                }
+            </select>
+            <button (click)="addIngredient()">Add</button>
+        </div> 
+        <div class="addRecipe-firstStep-IngredientsContainer">
+            @for (ingredient of ingredients(); track ingredient) {
+                <div class="a"> {{ingredient}} </div>
+                <button>delete</button>
+                <button>Edit</button>
+            }
+        </div>
+    </div>
 </div>
