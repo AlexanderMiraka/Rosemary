@@ -1,11 +1,12 @@
 import { Component, signal, EventEmitter, Output, Signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 @Component({
   templateUrl: './recipe-modal.component.html',
   styleUrl: './recipe-modal.component.scss',
   selector: 'recipe-modal',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
 })
 export class RecipeModal {
   constructor() {}
@@ -38,7 +39,17 @@ export class RecipeModal {
   quantity = '';
   measurement = '';
   addIngredient = ()=>{
-    const ingredient = `${this.quantity} ${this.measurement} ${this.ingredient}`;
-    this.setIngredientsTable(ingredient);
+    if(this.quantity != '' && this.measurement != '' && this.ingredient != '') {
+      const ingredient = `${this.quantity} ${this.measurement} ${this.ingredient}`;
+      this.setIngredientsTable(ingredient);
+      this.quantity = '';
+      this.measurement = '';
+      this.ingredient = '';
+    }
+    return;
   } 
+  selectedStep:number = 1;
+  selectStep(step:any) {
+    this.selectedStep = step;
+  }
 }

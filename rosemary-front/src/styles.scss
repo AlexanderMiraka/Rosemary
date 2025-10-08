@@ -33,3 +33,23 @@ body {
     transition: all .2s ease-in-out;
     
 }
+.btn-tertiary {
+    color: $text;
+          background-color: transparent;
+          padding: 4px 32px;
+          border: 1px solid $text;
+          border-radius: 15px;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+          font-size: 12px;
+          line-height: 16px;
+          font-weight: 900;
+          font-family: $body;
+          height: 24px;
+          &:hover {
+            transform: scale(110%);
+          }
+          &:active {
+            transform: translateY(-10px);
+          }
+}
