@@ -126,6 +126,38 @@
       }
     }
   }
+  &-actions {
+    &-next,&-prev {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      position: absolute;
+      bottom: 32px;
+    }
+    &-next {
+      right: 64px;
+      &::after {
+        content: "";
+        display: inline-block;
+        background: url('../../../../assets/button-arrow-right.svg') center no-repeat;
+        background-size: cover;
+        height: 16px;
+        width: 16px;
+      }
+    }
+    &-prev {
+      left: 64px;
+      &::before {
+        content: "";
+        display: inline-block;
+        background: url('../../../../assets/button-arrow-right.svg') center no-repeat;
+        background-size: cover;
+        height: 16px;
+        width: 16px;
+        transform: rotate(180deg);
+      }
+    }
+  }
 }
 .ingredient-input {
   background-color: $accent1;

@@ -48,8 +48,8 @@ export class RecipeModal {
     }
     return;
   } 
-  selectedStep:number = 1;
+  selectedStep = signal(1);
   selectStep(step:any) {
-    this.selectedStep = step;
+    this.selectedStep.set(step);
   }
 }

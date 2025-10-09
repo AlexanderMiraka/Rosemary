@@ -7,7 +7,7 @@
   <div class="addRecipe-stepper">
     <button
       class="addRecipe-stepperStep"
-      [ngClass]="selectedStep == 1 ? 'selected' : ''"
+      [ngClass]="selectedStep() == 1 ? 'selected' : ''"
       (click)="selectStep(1)"
     >
       1
@@ -15,7 +15,7 @@
     <div class="addRecipe-stepperProgressBar"></div>
     <button
       class="addRecipe-stepperStep"
-      [ngClass]="selectedStep == 2 ? 'selected' : ''"
+      [ngClass]="selectedStep() == 2 ? 'selected' : ''"
       (click)="selectStep(2)"
     >
       2
@@ -23,13 +23,13 @@
     <div class="addRecipe-stepperProgressBar"></div>
     <button
       class="addRecipe-stepperStep"
-      [ngClass]="selectedStep == 3 ? 'selected' : ''"
+      [ngClass]="selectedStep() == 3 ? 'selected' : ''"
       (click)="selectStep(3)"
     >
       3
     </button>
   </div>
-  @if(selectedStep===1) {
+  @if(selectedStep()===1) {
   <div class="addRecipe-firstStep">
     <div class="addRecipe-firstStep-addName">
       <h3>Add a name:</h3>
@@ -96,7 +96,7 @@
   </div>
   }
   <div class="addRecipe-actions">
-    <button class="btn-tertiary">Next</button>
-    <button class="btn-tertiary">Back</button>
+    <button class="btn-tertiary addRecipe-actions-prev" (click)="selectStep(selectedStep() - 1)" [ngClass]="selectedStep() === 1 ? 'disabled':''">Back</button>
+    <button class="btn-tertiary addRecipe-actions-next" (click)="selectStep(selectedStep() + 1)" [ngClass]="selectedStep() === 3 ? 'disabled':''">Next</button>
   </div>
 </div>

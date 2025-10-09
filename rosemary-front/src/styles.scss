@@ -53,3 +53,7 @@ body {
             transform: translateY(-10px);
           }
 }
+
+.btn-tertiary.disabled {
+  display: none;
+}
