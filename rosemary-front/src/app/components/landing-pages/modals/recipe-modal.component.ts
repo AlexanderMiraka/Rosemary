@@ -52,4 +52,11 @@ export class RecipeModal {
   selectStep(step:any) {
     this.selectedStep.set(step);
   }
+  deleteIngredient(i:number) {
+    if(i===0) {
+      this.ingredients().shift();
+      return;
+    }
+    this.ingredients().splice(i,1);
+  }
 }

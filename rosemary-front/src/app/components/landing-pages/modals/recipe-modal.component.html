@@ -85,11 +85,10 @@
       </div>
     </div>
     <div class="addRecipe-firstStep-ingredientsContainer">
-      @for (ingredient of ingredients(); track ingredient) {
+      @for (ingredient of ingredients(); track ingredient; let i = $index) {
       <div class="addRecipe-firstStep-ingredientsContainer-content">
         <h3>{{ ingredient }}</h3>
-        <button class="btn-tertiary">delete</button>
-        <button class="btn-tertiary">Edit</button>
+        <button class="btn-tertiary" (click)="deleteIngredient(i)">delete</button>
       </div>
       }
     </div>
@@ -97,6 +96,6 @@
   }
   <div class="addRecipe-actions">
     <button class="btn-tertiary addRecipe-actions-prev" (click)="selectStep(selectedStep() - 1)" [ngClass]="selectedStep() === 1 ? 'disabled':''">Back</button>
-    <button class="btn-tertiary addRecipe-actions-next" (click)="selectStep(selectedStep() + 1)" [ngClass]="selectedStep() === 3 ? 'disabled':''">Next</button>
+    <button class="btn-tertiary addRecipe-actions-next" (click)="selectStep(selectedStep() + 1)" [ngClass]="ingredients().length === 0 || selectedStep() === 3 ? 'disabled':''">Next</button>
   </div>
 </div>

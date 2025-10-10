@@ -101,6 +101,9 @@
         display: flex;
         gap: 4px;
         align-items: end;
+        &-btn {
+          margin-right: 8px;
+        }
       }
       &-subcontainer {
         display: flex;
@@ -115,6 +118,8 @@
       scrollbar-width: thin;
       &-content {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
         h3 {
           font-family: $body;
           font-size: 18px;
@@ -122,6 +127,9 @@
           font-weight: 600;
           color: $text;
           margin: 0 32px 0 0;
+        }
+        .btn-tertiary {
+          margin-right: 8px;
         }
       }
     }
